@@ -1,3 +1,9 @@
+# Emacs
+*~
+
+# Bazel symlinks
+bazel-*
+
 # Binaries for programs and plugins
 *.exe
 *.dll

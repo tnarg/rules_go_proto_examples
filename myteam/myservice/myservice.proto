@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package myteam.myservice;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+import "shared/shared.proto";
+
+message ItemInfo {
+  string name = 1;
+  string description = 2;
+}
+
+message Item {
+  shared.UUID id = 1;
+  google.protobuf.Timestamp created = 2;
+  ItemInfo info = 3;
+}
+
+message CreateItemRequest {
+  ItemInfo info = 1;
+}
+
+message CreateItemResponse {
+  shared.UUID item_id = 1;
+}
+
+message GetItemRequest {
+  shared.UUID item_id = 1;
+}
+
+message GetItemResponse {
+  enum Status {
+    FOUND = 0;
+    NOT_FOUND = 1;
+  }
+
+  Status status = 1;
+  Item item = 2;
+}
+
+message DeleteItemRequest {
+  shared.UUID item_id = 1;
+}
+
+message DeleteItemResponse {
+  enum Status {
+    DELETED = 0;
+    NOT_FOUND = 1;
+  }
+
+  Status status = 1;
+}
+
+service MyService {
+  rpc CreateItem (CreateItemRequest) returns (CreateItemResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/items"
+      body: "*"
+    };
+  }
+
+  rpc GetItem(GetItemRequest) returns (GetItemResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/items/{item_id.value}"
+    };
+  }
+
+  rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1/items/{item_id.value}"
+    };
+  }
+}
