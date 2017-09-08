@@ -9,7 +9,7 @@ git_repository(
 git_repository(
     name = "com_github_tnarg_rules_go_proto",
     remote = "https://github.com/tnarg/rules_go_proto.git",
-    commit = "2039e022fe1781dd949969f59ff82ae199d6a53f",
+    commit = "e92ff20ec92a8c8a15113402cca17ae73288f950",
 )
 
 load("@io_bazel_rules_go//go:def.bzl", "go_repositories", "go_repository")
