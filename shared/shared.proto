@@ -5,5 +5,5 @@ package shared;
 import "gogoproto/gogo.proto";
 
 message UUID {
-  bytes value = 1 [(gogoproto.nullable) = false, (gogoproto.customtype) = "github.com/tnarg/rules_go_proto_examples/uuid.UUID"];
+  bytes value = 1 [(gogoproto.nullable) = false, (gogoproto.customtype) = "github.com/tnarg/rules_gogo_proto_examples/uuid.UUID"];
 }

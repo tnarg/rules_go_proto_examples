@@ -1,22 +1,23 @@
-workspace(name = "com_github_tnarg_rules_go_proto_examples")
+workspace(name = "com_github_tnarg_rules_gogo_proto_examples")
 
 git_repository(
     name = "io_bazel_rules_go",
     remote = "https://github.com/bazelbuild/rules_go.git",
-    commit = "4be196cc186da9dd396d5a45a3a7f343b6abe2b0",
+    commit = "dc6f99ad91eeeba7e780a66776eb6f8215cb9bdc",
 )
 
 git_repository(
-    name = "com_github_tnarg_rules_go_proto",
-    remote = "https://github.com/tnarg/rules_go_proto.git",
-    commit = "9012b95628c7eb762e7dbd61be93f46ad20b9370",
+    name = "com_github_tnarg_rules_gogo_proto",
+    remote = "https://github.com/tnarg/rules_gogo_proto.git",
+    commit = "de33db5457899eb4245e72d9660d6ae1ec11596e",
 )
 
-load("@io_bazel_rules_go//go:def.bzl", "go_repositories", "go_repository")
-load("@com_github_tnarg_rules_go_proto//go_proto:rules.bzl", "gogo_repositories")
+load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains", "go_repository")
+load("@com_github_tnarg_rules_gogo_proto//go_proto:rules.bzl", "gogo_protobuf_repositories")
 
-go_repositories()
-gogo_repositories()
+go_rules_dependencies()
+go_register_toolchains(go_version="1.9")
+gogo_protobuf_repositories()
 
 go_repository(
     name = "com_github_elazarl_go_bindata_assetfs",

@@ -5,7 +5,7 @@ import (
 
 	"golang.org/x/net/context"
 
-	"github.com/tnarg/rules_go_proto_examples/myteam/myservice"
+	"github.com/tnarg/rules_gogo_proto_examples/myteam/myservice"
 )
 
 type myServiceImpl struct{}

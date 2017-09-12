@@ -1,12 +1,12 @@
-load("@com_github_tnarg_rules_go_proto//go_proto:rules.bzl", "gogo_proto_library")
+load("@com_github_tnarg_rules_gogo_proto//go_proto:rules.bzl", "gogo_proto_library")
 
 gogo_proto_library(
     name = "go_default_library",
     srcs = ["myservice.proto"],
     deps = [
          "//shared:go_default_library",
-         "@com_github_tnarg_rules_go_proto//google/api:go_default_library",      # annotations
-         "@com_github_tnarg_rules_go_proto//google/protobuf:go_default_library", # timestamp
+         "@com_github_tnarg_rules_gogo_proto//google/api:go_default_library",      # annotations
+         "@com_github_tnarg_rules_gogo_proto//google/protobuf:go_default_library", # timestamp
     ],
     with_grpc = True,
     with_gateway = True,

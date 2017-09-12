@@ -15,8 +15,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
-	"github.com/tnarg/rules_go_proto_examples/cmd/myserviced/insecure"
-	"github.com/tnarg/rules_go_proto_examples/myteam/myservice"
+	"github.com/tnarg/rules_gogo_proto_examples/cmd/myserviced/insecure"
+	"github.com/tnarg/rules_gogo_proto_examples/myteam/myservice"
 )
 
 //
