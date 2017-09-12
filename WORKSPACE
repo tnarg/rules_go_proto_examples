@@ -9,7 +9,7 @@ git_repository(
 git_repository(
     name = "com_github_tnarg_rules_go_proto",
     remote = "https://github.com/tnarg/rules_go_proto.git",
-    commit = "e92ff20ec92a8c8a15113402cca17ae73288f950",
+    commit = "2c5f511a4e03749707cf36aa92b58a072da4f326",
 )
 
 load("@io_bazel_rules_go//go:def.bzl", "go_repositories", "go_repository")
@@ -34,4 +34,10 @@ go_repository(
     name = "com_github_gorilla_mux",
     tag = "v1.4.0",
     importpath = "github.com/gorilla/mux",
+)
+
+go_repository(
+    name = "com_github_google_uuid",
+    commit = "7e072fc3a7be179aee6d3359e46015aa8c995314",
+    importpath = "github.com/google/uuid",
 )

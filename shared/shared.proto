@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package shared;
 
+import "gogoproto/gogo.proto";
+
 message UUID {
-  string value = 1;
+  bytes value = 1 [(gogoproto.nullable) = false, (gogoproto.customtype) = "github.com/tnarg/rules_go_proto_examples/uuid.UUID"];
 }

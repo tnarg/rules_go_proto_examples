@@ -4,5 +4,8 @@ go_proto_library(
     name = "go_default_library",
     srcs = ["shared.proto"],
     deps = [],
+    pure_go_deps = [
+        "//uuid:go_default_library",
+    ],
     visibility = ["//visibility:public"],
 )
