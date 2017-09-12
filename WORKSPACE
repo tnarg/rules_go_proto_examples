@@ -9,14 +9,14 @@ git_repository(
 git_repository(
     name = "com_github_tnarg_rules_go_proto",
     remote = "https://github.com/tnarg/rules_go_proto.git",
-    commit = "2c5f511a4e03749707cf36aa92b58a072da4f326",
+    commit = "9012b95628c7eb762e7dbd61be93f46ad20b9370",
 )
 
 load("@io_bazel_rules_go//go:def.bzl", "go_repositories", "go_repository")
-load("@com_github_tnarg_rules_go_proto//go_proto:rules.bzl", "go_grpc_repositories")
+load("@com_github_tnarg_rules_go_proto//go_proto:rules.bzl", "gogo_repositories")
 
 go_repositories()
-go_grpc_repositories()
+gogo_repositories()
 
 go_repository(
     name = "com_github_elazarl_go_bindata_assetfs",

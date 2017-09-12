@@ -1,6 +1,6 @@
-load("@com_github_tnarg_rules_go_proto//go_proto:rules.bzl", "go_proto_library")
+load("@com_github_tnarg_rules_go_proto//go_proto:rules.bzl", "gogo_proto_library")
 
-go_proto_library(
+gogo_proto_library(
     name = "go_default_library",
     srcs = ["myservice.proto"],
     deps = [
