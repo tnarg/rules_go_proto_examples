@@ -2,20 +2,23 @@ syntax = "proto3";
 
 package myteam.myservice;
 
+option go_package = "example.com/api;api";
+
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 import "shared/shared.proto";
 
 message ItemInfo {
-  string name = 1;
+  string name = 1 [(validator.field) = {regex: "^[a-z]{2,5}$"}];
   string description = 2;
 }
 
 message Item {
   shared.UUID id = 1;
-  google.protobuf.Timestamp created = 2 [(gogoproto.nullable) = false, (gogoproto.stdtime) = true];
+  google.protobuf.Timestamp created = 2 [(gogoproto.stdtime) = true];
   ItemInfo info = 3;
 }
 

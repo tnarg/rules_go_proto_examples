@@ -15,8 +15,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
+	"example.com/api"
 	"github.com/tnarg/rules_gogo_proto_examples/cmd/myserviced/insecure"
-	"github.com/tnarg/rules_gogo_proto_examples/myteam/myservice"
 )
 
 //
@@ -33,7 +33,7 @@ func newGRPCHandler() http.Handler {
 	grpcServer := grpc.NewServer(
 		grpc.Creds(credentials.NewClientTLSFromCert(insecure.CertPool, insecure.Addr)),
 	)
-	myteam_myservice.RegisterMyServiceServer(grpcServer, newMyServiceImpl())
+	api.RegisterMyServiceServer(grpcServer, newMyServiceImpl())
 	return grpcServer
 }
 
@@ -49,7 +49,7 @@ func newRESTGatewayHandler() http.Handler {
 
 	ctx := context.Background()
 	restHandler := runtime.NewServeMux()
-	err := myteam_myservice.RegisterMyServiceHandlerFromEndpoint(ctx, restHandler, insecure.Addr, dopts)
+	err := api.RegisterMyServiceHandlerFromEndpoint(ctx, restHandler, insecure.Addr, dopts)
 	if err != nil {
 		panic(fmt.Errorf("serve: %v\n", err))
 	}
@@ -62,9 +62,9 @@ func newRESTGatewayHandler() http.Handler {
 //
 func newDocsHandler() http.Handler {
 	docsFS := &assetfs.AssetFS{
-		Asset:     myteam_myservice.Asset,
-		AssetDir:  myteam_myservice.AssetDir,
-		AssetInfo: myteam_myservice.AssetInfo,
+		Asset:     api.Asset,
+		AssetDir:  api.AssetDir,
+		AssetInfo: api.AssetInfo,
 	}
 
 	return http.StripPrefix("/doc/", http.FileServer(docsFS))

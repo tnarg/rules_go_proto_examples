@@ -5,7 +5,7 @@ import (
 
 	"golang.org/x/net/context"
 
-	"github.com/tnarg/rules_gogo_proto_examples/myteam/myservice"
+	"example.com/api"
 )
 
 type myServiceImpl struct{}
@@ -14,14 +14,14 @@ func newMyServiceImpl() *myServiceImpl {
 	return new(myServiceImpl)
 }
 
-func (self *myServiceImpl) CreateItem(context.Context, *myteam_myservice.CreateItemRequest) (*myteam_myservice.CreateItemResponse, error) {
+func (self *myServiceImpl) CreateItem(context.Context, *api.CreateItemRequest) (*api.CreateItemResponse, error) {
 	return nil, fmt.Errorf("Not Implemented")
 }
 
-func (self *myServiceImpl) GetItem(context.Context, *myteam_myservice.GetItemRequest) (*myteam_myservice.GetItemResponse, error) {
+func (self *myServiceImpl) GetItem(context.Context, *api.GetItemRequest) (*api.GetItemResponse, error) {
 	return nil, fmt.Errorf("Not Implemented")
 }
 
-func (self *myServiceImpl) DeleteItem(context.Context, *myteam_myservice.DeleteItemRequest) (*myteam_myservice.DeleteItemResponse, error) {
+func (self *myServiceImpl) DeleteItem(context.Context, *api.DeleteItemRequest) (*api.DeleteItemResponse, error) {
 	return nil, fmt.Errorf("Not Implemented")
 }
