@@ -9,7 +9,6 @@ gogo_proto_library(
     deps = [
          "//shared:go_default_library",
          "@com_github_tnarg_rules_gogo_proto//google/api:go_default_library",      # annotations
-         "@com_github_tnarg_rules_gogo_proto//google/protobuf:go_default_library", # timestamp
     ],
     with_grpc = True,
     with_validators = True,
